@@ -31,6 +31,9 @@ set showmatch
 " enable highlight search pattern
 set hlsearch
 
+" give messages a little more room to breathe
+set cmdheight=2
+
 " configure the gruvbox theme
 set background=dark
 autocmd vimenter * ++nested colorscheme gruvbox
