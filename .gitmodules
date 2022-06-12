@@ -10,3 +10,6 @@
 [submodule ".vim/pack/dist/start/auto-pairs"]
 	path = .vim/pack/dist/start/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs.git
+[submodule ".vim/pack/dist/start/coc.nvim"]
+	path = .vim/pack/dist/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim.git
