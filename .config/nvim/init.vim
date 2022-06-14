@@ -57,6 +57,7 @@ Plug 'jiangmiao/auto-pairs'
 " fuzzy file finder
 Plug 'ctrlpvim/ctrlp.vim'
 
+" language server protocol
 Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
@@ -77,5 +78,10 @@ if (empty($TMUX))
   endif
 endif
 
-autocmd vimenter * ++nested colorscheme gruvbox
 set background=dark
+autocmd vimenter * ++nested colorscheme gruvbox
+
+lua << EOF
+-- require additional local lua files with configuration in them
+require('lukas/lsp')
+EOF
