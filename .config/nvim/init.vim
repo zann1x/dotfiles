@@ -39,7 +39,7 @@ set path+=**
 " display all matching files when searching and trying to tab complete
 set wildmenu
 " files to ignore when searching
-set wildignore+=*/build/*,*/target/*,*.lock
+set wildignore+=*/.git/*,*/*build*/*,*/target/*,*.lock
 
 " set internal encoding of vim
 set encoding=utf-8
@@ -47,15 +47,19 @@ set encoding=utf-8
 " plugins to install
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
-" visual stuff
+" nice status line
 Plug 'vim-airline/vim-airline'
+
+" theme
 Plug 'morhetz/gruvbox'
 
 " automatically add closing parenthesis, quote etc.
 Plug 'jiangmiao/auto-pairs'
 
 " fuzzy file finder
-Plug 'ctrlpvim/ctrlp.vim'
+" -> install the latest version of the binary in the post-update hook
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " language server protocol
 Plug 'neovim/nvim-lspconfig'
