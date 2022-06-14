@@ -1,6 +1,48 @@
-set cursorline
+" enable line numbers
 set number
+" show relative line numbers
 set relativenumber
+
+" highlight the current line
+set cursorline
+
+" indentation using spaces
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+
+" highlight search results already when typing the search term
+set incsearch
+
+" already scroll before the end of the page is reached
+set scrolloff=8
+
+" show the 'end of line' column at position x
+set colorcolumn=80
+" show the bar left of the text available for e.g. syntax error indications
+set signcolumn=yes
+
+" show the matching parenthesis
+set showmatch
+
+" enable highlight search pattern
+set hlsearch
+
+" give messages a little more room to breathe
+set cmdheight=2
+
+" when searching for a file, also search in all subdirectories
+set path+=**
+
+" display all matching files when searching and trying to tab complete
+set wildmenu
+" files to ignore when searching
+set wildignore+=*/build/*,*/target/*,*.lock
+
+" set internal encoding of vim
+set encoding=utf-8
 
 " plugins to install
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
