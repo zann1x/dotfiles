@@ -56,6 +56,15 @@ Plug 'morhetz/gruvbox'
 " automatically add closing parenthesis, quote etc.
 Plug 'jiangmiao/auto-pairs'
 
+" (generally useful) helper functions (for some plugins)
+Plug 'nvim-lua/plenary.nvim'
+
+" cmake integration
+Plug 'Shatur/neovim-cmake'
+
+" fuzzy finder
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+
 " fuzzy file finder
 " -> install the latest version of the binary in the post-update hook
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -63,6 +72,11 @@ Plug 'junegunn/fzf.vim'
 
 " language server protocol
 Plug 'neovim/nvim-lspconfig'
+
+" treesitter
+" -> update all modules in the post-update hook
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-context'
 
 call plug#end()
 
@@ -85,7 +99,11 @@ endif
 set background=dark
 autocmd vimenter * ++nested colorscheme gruvbox
 
+"nnoremap <space>ff <cmd>Telescope find_files<cr>
+
 lua << EOF
 -- require additional local lua files with configuration in them
+require('lukas/cmake')
 require('lukas/lsp')
+require('lukas/treesitter')
 EOF
