@@ -97,6 +97,7 @@ if (empty($TMUX))
 endif
 
 set background=dark
+let g:gruvbox_contrast_dark = 'hard'
 autocmd vimenter * ++nested colorscheme gruvbox
 
 "nnoremap <space>ff <cmd>Telescope find_files<cr>
