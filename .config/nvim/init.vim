@@ -100,11 +100,10 @@ set background=dark
 let g:gruvbox_contrast_dark = 'hard'
 autocmd vimenter * ++nested colorscheme gruvbox
 
-"nnoremap <space>ff <cmd>Telescope find_files<cr>
-
 lua << EOF
 -- require additional local lua files with configuration in them
 require('lukas/cmake')
 require('lukas/lsp')
+require('lukas/telescope')
 require('lukas/treesitter')
 EOF
