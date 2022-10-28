@@ -44,6 +44,9 @@ set wildignore+=*/.git/*,*/*build*/*,*/target/*,*.lock
 " set internal encoding of vim
 set encoding=utf-8
 
+" set leader key
+let mapleader = " "
+
 " plugins to install
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
