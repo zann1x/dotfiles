@@ -65,6 +65,9 @@ Plug 'nvim-lua/plenary.nvim'
 " cmake integration
 Plug 'Shatur/neovim-cmake'
 
+" editorconfig support
+Plug 'editorconfig/editorconfig-vim'
+
 " fuzzy finder
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
