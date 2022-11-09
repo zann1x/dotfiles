@@ -10,3 +10,14 @@
 	defaultBranch = main
 [tag]
 	forceSignAnnotated = true
+[alias]
+	a = add
+
+	c = commit -v
+	ca = commit --amend
+	can = commit --amend --no-edit
+
+	s = status
+
+	sw = switch
+	swc = switch -c
