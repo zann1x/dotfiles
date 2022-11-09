@@ -1,1 +1,2 @@
-*
+# Ignore the dotfiles repository itself to avoid any recursion
+dotfiles
