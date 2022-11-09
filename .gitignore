@@ -1,2 +1,7 @@
 # Ignore the dotfiles repository itself to avoid any recursion
-dotfiles
+dotfiles/
+
+# DO NOT COMMIT SECRETS
+.gnupg/
+.ssh/*
+!.ssh/config
