@@ -30,5 +30,8 @@ fi
 # always use gpg2
 alias gpg=gpg2
 
+# allow easier dotfile git management
+alias config='$(which git) --git-dir=$HOME/dotfiles --work-tree=$HOME'
+
 # allow GPG signing
 export GPG_TTY=$(tty)
