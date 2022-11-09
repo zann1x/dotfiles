@@ -1,0 +1,12 @@
+[core]
+	editor = vim
+[user]
+	email = git@lukaszanner.de
+	name = Lukas Zanner
+	signingkey = 6745256B81327E7E!
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
+[tag]
+	forceSignAnnotated = true
