@@ -47,6 +47,9 @@ set encoding=utf-8
 " set leader key
 let mapleader = " "
 
+" shortcut for exiting the terminal
+tnoremap <Esc> <C-\><C-n>
+
 " plugins to install
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
