@@ -27,5 +27,8 @@ fi
 # source Rust
 . "$HOME/.cargo/env"
 
+# always use gpg2
+alias gpg=gpg2
+
 # allow GPG signing
 export GPG_TTY=$(tty)
