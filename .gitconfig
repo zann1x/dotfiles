@@ -8,6 +8,8 @@
 	gpgsign = true
 [init]
 	defaultBranch = main
+[rerere]
+	enabled = true
 [tag]
 	forceSignAnnotated = true
 [alias]
