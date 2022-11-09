@@ -14,12 +14,30 @@
 	forceSignAnnotated = true
 [alias]
 	a = add
+	ai = add -i
+	ap = add -p
 
 	c = commit -v
 	ca = commit --amend
 	can = commit --amend --no-edit
 
+	f = fetch --prune
+	fa = fetch --all --prune
+
+	p = pull
+	pu = push
+	puf = push --force-with-lease
+	puff = push --force
+
+	r = rebase
+	ri = rebase -i
+
 	s = status
 
 	sw = switch
 	swc = switch -c
+
+        fl = log -u
+        ll = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=relative
+        lli = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=iso
+        ls = log --pretty=format:"%h\\ %s\\ [%cn]"
