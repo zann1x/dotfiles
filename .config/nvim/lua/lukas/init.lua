@@ -27,6 +27,10 @@ vim.opt.path:append('**')
 vim.opt.wildmenu = true
 vim.opt.wildignore:append('*/.git/*,*/*build*/*,*/target/*,*.lock')
 
+vim.opt.termguicolors = true
+
+vim.o.background = 'dark'
+
 vim.g.mapleader = " "
 
 require('lukas.packer')

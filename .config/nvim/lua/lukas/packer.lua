@@ -18,9 +18,21 @@ return require('packer').startup(function(use)
 
   -- Status line
   use 'vim-airline/vim-airline'
+  use {
+    'vim-airline/vim-airline-themes',
+    config = function ()
+      vim.g.airline_theme = 'gruvbox'
+    end
+  }
 
   -- Theme
-  use 'morhetz/gruvbox'
+  use {
+    'morhetz/gruvbox',
+    config = function ()
+      vim.cmd('autocmd vimenter * ++nested colorscheme gruvbox')
+      vim.g.gruvbox_contrast_dark = 'hard'
+    end
+  }
 
   -- Automatically add closing parenthesis, quotes etc.
   use 'jiangmiao/auto-pairs'
