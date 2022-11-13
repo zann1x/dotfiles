@@ -1,93 +1,9 @@
-" enable line numbers
-set number
-" show relative line numbers
-set relativenumber
-
-" highlight the current line
-set cursorline
-
-" indentation using spaces
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set smartindent
-
-" highlight search results already when typing the search term
-set incsearch
-
-" already scroll before the end of the page is reached
-set scrolloff=8
-
-" show the 'end of line' column at position x
-set colorcolumn=80
-" show the bar left of the text available for e.g. syntax error indications
-set signcolumn=yes
-
-" show the matching parenthesis
-set showmatch
-
-" enable highlight search pattern
-set hlsearch
-
-" give messages a little more room to breathe
-set cmdheight=2
-
-" when searching for a file, also search in all subdirectories
-set path+=**
-
-" display all matching files when searching and trying to tab complete
-set wildmenu
-" files to ignore when searching
-set wildignore+=*/.git/*,*/*build*/*,*/target/*,*.lock
-
-" set internal encoding of vim
-set encoding=utf-8
-
-" set leader key
-let mapleader = " "
-
 " shortcut for exiting the terminal
 tnoremap <Esc> <C-\><C-n>
 
-" plugins to install
-call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
-
-" nice status line
-Plug 'vim-airline/vim-airline'
-
-" theme
-Plug 'morhetz/gruvbox'
-
-" automatically add closing parenthesis, quote etc.
-Plug 'jiangmiao/auto-pairs'
-
-" (generally useful) helper functions (for some plugins)
-Plug 'nvim-lua/plenary.nvim'
-
-" cmake integration
-Plug 'Shatur/neovim-cmake'
-
-" editorconfig support
-Plug 'editorconfig/editorconfig-vim'
-
-" fuzzy finder
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
-
-" fuzzy file finder
-" -> install the latest version of the binary in the post-update hook
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
-" language server protocol
-Plug 'neovim/nvim-lspconfig'
-
-" treesitter
-" -> update all modules in the post-update hook
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/nvim-treesitter-context'
-
-call plug#end()
+lua << EOF
+require('lukas')
+EOF
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -108,11 +24,3 @@ endif
 set background=dark
 let g:gruvbox_contrast_dark = 'hard'
 autocmd vimenter * ++nested colorscheme gruvbox
-
-lua << EOF
--- require additional local lua files with configuration in them
-require('lukas/cmake')
-require('lukas/lsp')
-require('lukas/telescope')
-require('lukas/treesitter')
-EOF
