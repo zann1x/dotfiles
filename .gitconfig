@@ -21,8 +21,10 @@
 	ca = commit --amend
 	can = commit --amend --no-edit
 
-	f = fetch --prune
-	fa = fetch --all --prune
+	f = fetch
+	fa = fetch --all
+	fp = fetch --prune
+	fap = fetch --all --prune
 
 	p = pull
 	pu = push
