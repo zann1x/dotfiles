@@ -65,7 +65,16 @@ return require('packer').startup(function(use)
   -- Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
+    run = ':TSUpdate',
+    config = function()
+      require'nvim-treesitter.configs'.setup {
+        ensure_installed = "all",
+        sync_install = false,
+        highlight = {
+          enable = true,
+        }
+      }
+    end
   }
   -- Shows the context of the currently visible buffer contents
   use 'nvim-treesitter/nvim-treesitter-context'

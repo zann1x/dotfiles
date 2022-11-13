@@ -33,4 +33,3 @@ require('lukas.packer')
 
 require('lukas.lsp')
 require('lukas.telescope')
-require('lukas.treesitter')
