@@ -46,7 +46,14 @@ return require('packer').startup(function(use)
   }
 
   -- Language Server Protocol
-  use("neovim/nvim-lspconfig")
+  use 'neovim/nvim-lspconfig'
+  -- Progress indicator for LSP
+  use {
+    'j-hui/fidget.nvim',
+    config = function ()
+      require'fidget'.setup()
+    end
+  }
 
   -- Treesitter
   use {
