@@ -22,10 +22,10 @@ vim.opt.cmdheight = 2
 
 vim.opt.showmatch = true
 
-vim.opt.path += "**"
+vim.opt.path:append('**')
 
 vim.opt.wildmenu = true
-vim.opt.wildignore += "*/.git/*,*/*build*/*,*/target/*,*.lock"
+vim.opt.wildignore:append('*/.git/*,*/*build*/*,*/target/*,*.lock')
 
 vim.g.mapleader = " "
 
