@@ -31,7 +31,6 @@ vim.g.mapleader = " "
 
 require('lukas.packer')
 
-require('lukas.cmake')
 require('lukas.lsp')
 require('lukas.telescope')
 require('lukas.treesitter')

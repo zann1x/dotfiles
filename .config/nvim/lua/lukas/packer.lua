@@ -29,7 +29,14 @@ return require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
 
   -- Cmake integration
-  use 'Shatur/neovim-cmake'
+  use {
+    'Shatur/neovim-cmake',
+    config = function()
+      require'cmake'.setup({
+        copy_compile_commands = false,
+      })
+    end
+  }
 
   -- .editorconfig support
   use 'editorconfig/editorconfig-vim'
