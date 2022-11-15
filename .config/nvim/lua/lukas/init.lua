@@ -33,6 +33,18 @@ vim.o.background = 'dark'
 
 vim.g.mapleader = " "
 
+local opts = { noremap = true, silent = true }
+
+-- Center search results
+vim.keymap.set('n', 'n', 'nzz', opts)
+vim.keymap.set('n', 'N', 'Nzz', opts)
+vim.keymap.set('n', '*', '*zz', opts)
+vim.keymap.set('n', '#', '#zz', opts)
+
+-- Jump to start and end of line more conveniently
+vim.keymap.set('n', 'H', '^', opts)
+vim.keymap.set('n', 'L', '$', opts)
+
 require('lukas.packer')
 
 require('lukas.lsp')
