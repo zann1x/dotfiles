@@ -2,6 +2,29 @@
 lspconfig = require('lspconfig')
 util = require('lspconfig/util')
 
+local cmp = require('cmp')
+cmp.setup({
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  }),
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' },
+  }),
+})
+
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
@@ -9,6 +32,8 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
+
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -44,14 +69,17 @@ local lsp_flags = {
 }
 
 lspconfig.clangd.setup {
+    capabilities = capabilities,
     flags = lsp_flags,
 	on_attach = on_attach,
 }
 lspconfig.gopls.setup {
+    capabilities = capabilities,
     flags = lsp_flags,
 	on_attach = on_attach,
 }
 lspconfig.rust_analyzer.setup {
+    capabilities = capabilities,
     flags = lsp_flags,
     on_attach = on_attach,
 }

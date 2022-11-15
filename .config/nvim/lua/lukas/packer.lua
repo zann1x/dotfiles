@@ -66,6 +66,13 @@ return require('packer').startup(function(use)
 
   -- Language Server Protocol
   use 'neovim/nvim-lspconfig'
+
+  -- Code completion
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-vsnip'
+  use 'hrsh7th/vim-vsnip'
+
   -- Progress indicator for LSP
   use {
     'j-hui/fidget.nvim',
