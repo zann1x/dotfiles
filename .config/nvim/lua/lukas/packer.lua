@@ -81,6 +81,9 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- Extra functionality for rust_analyzer
+  use 'simrat39/rust-tools.nvim'
+
   -- Treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
