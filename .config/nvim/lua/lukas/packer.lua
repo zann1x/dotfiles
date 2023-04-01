@@ -37,9 +37,6 @@ return require('packer').startup(function(use)
   -- Git integration
   use 'tpope/vim-fugitive'
 
-  -- Automatically add closing parenthesis, quotes etc.
-  use 'jiangmiao/auto-pairs'
-
   -- lodash but for nvim
   use 'nvim-lua/plenary.nvim'
 
