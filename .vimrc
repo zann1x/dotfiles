@@ -16,6 +16,7 @@ set hlsearch
 set scrolloff=8
 
 set colorcolumn=80
+set signcolumn=auto
 
 set cmdheight=2
 
