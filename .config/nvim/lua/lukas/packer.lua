@@ -34,6 +34,9 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- Git integration
+  use 'tpope/vim-fugitive'
+
   -- Automatically add closing parenthesis, quotes etc.
   use 'jiangmiao/auto-pairs'
 
