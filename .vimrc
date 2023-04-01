@@ -1,8 +1,6 @@
 set number
 set relativenumber
 
-set cursorline
-
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -15,10 +13,14 @@ set hlsearch
 
 set scrolloff=8
 
+set termguicolors
+set background=dark
+
 set colorcolumn=80
 set signcolumn=auto
 
 set cmdheight=2
+set updatetime=50
 
 set showmatch
 
@@ -26,6 +28,8 @@ set path+='**'
 
 set wildmenu
 set wildignore+='*/.git/*,*/*build*/*,*/target/*,*.lock'
+
+let mapleader=' '
 
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
