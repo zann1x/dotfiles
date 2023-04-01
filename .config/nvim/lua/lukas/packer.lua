@@ -85,19 +85,7 @@ return require('packer').startup(function(use)
   use 'simrat39/rust-tools.nvim'
 
   -- Treesitter
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
-    config = function()
-      require'nvim-treesitter.configs'.setup {
-        ensure_installed = "all",
-        sync_install = false,
-        highlight = {
-          enable = true,
-        }
-      }
-    end
-  }
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   -- Shows the context of the currently visible buffer contents
   use 'nvim-treesitter/nvim-treesitter-context'
 
