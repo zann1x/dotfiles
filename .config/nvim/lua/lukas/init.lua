@@ -7,4 +7,3 @@ vim.g.mapleader = " "
 require('lukas.packer')
 
 require('lukas.lsp')
-require('lukas.telescope')
