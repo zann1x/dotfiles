@@ -67,16 +67,14 @@ local lsp_flags = {
 }
 
 lspconfig.clangd.setup {
-    flags = lsp_flags,
-	on_attach = on_attach,
+  flags = lsp_flags,
+  on_attach = on_attach,
 }
 lspconfig.gopls.setup {
-    flags = lsp_flags,
-	on_attach = on_attach,
+  flags = lsp_flags,
+  on_attach = on_attach,
 }
-require('rust-tools').setup({
-    server = {
-        flags = lsp_flags,
-        on_attach = on_attach,
-    }
-})
+lspconfig.rust_analyzer.setup {
+  flags = lsp_flags,
+  on_attach = on_attach,
+}
