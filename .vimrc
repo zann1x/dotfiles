@@ -31,6 +31,7 @@ set wildignore+='*/.git/*,*/*build*/*,*/target/*,*.lock'
 
 let mapleader=' '
 
+" Keep the cursor in the middle when jumping within a file
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
 nnoremap <silent> * *zz
@@ -38,5 +39,16 @@ nnoremap <silent> # #zz
 nnoremap <silent> <C-d> <C-d>zz
 nnoremap <silent> <C-u> <C-u>zz
 
+" Convenience for start and end of line without having to move my hands
 nnoremap <silent> H ^
 nnoremap <silent> L $
+
+" Move whole lines with automatic indentation
+vnoremap <silent> J :m '>+1<CR>gv=gv
+vnoremap <silent> K :m '<-2<CR>gv=gv
+
+" Keep the cursor in place when pulling a line up
+nnoremap <silent> J mzJ`z
+
+" Don't lose the last copied word when pasting it over a selection
+xnoremap <silent> <leader>p "_dP
