@@ -1,45 +1,45 @@
 [core]
-	editor = $(which vim)
+    editor = $(which vim)
 [user]
-	email = git@lukaszanner.de
-	name = Lukas Zanner
-	signingkey = 6745256B81327E7E!
+    email = git@lukaszanner.de
+    name = Lukas Zanner
+    signingkey = 6745256B81327E7E!
 [commit]
-	gpgsign = true
+    gpgsign = true
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [rerere]
-	enabled = true
+    enabled = true
 [tag]
-	forceSignAnnotated = true
+    forceSignAnnotated = true
 [alias]
-	a = add
-	ai = add -i
-	ap = add -p
+    a = add
+    ai = add -i
+    ap = add -p
 
-	c = commit -v
-	ca = commit --amend
-	can = commit --amend --no-edit
+    c = commit -v
+    ca = commit --amend
+    can = commit --amend --no-edit
 
-	f = fetch
-	fa = fetch --all
-	fp = fetch --prune
-	fap = fetch --all --prune
+    f = fetch
+    fa = fetch --all
+    fp = fetch --prune
+    fap = fetch --all --prune
 
-	p = pull
-	pu = push
-	puf = push --force-with-lease
-	puff = push --force
+    p = pull
+    pu = push
+    puf = push --force-with-lease
+    puff = push --force
 
-	r = rebase
-	ri = rebase -i
+    r = rebase
+    ri = rebase -i
 
-	s = status
+    s = status
 
-	sw = switch
-	swc = switch -c
+    sw = switch
+    swc = switch -c
 
-        fl = log -u
-        ll = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=relative
-        lli = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=iso
-        ls = log --pretty=format:"%h\\ %s\\ [%cn]"
+    fl = log -u
+    ll = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=relative
+    lli = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=iso
+    ls = log --pretty=format:"%h\\ %s\\ [%cn]"
