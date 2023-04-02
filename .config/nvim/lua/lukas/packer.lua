@@ -40,9 +40,6 @@ return require('packer').startup(function(use)
   -- Git integration
   use 'tpope/vim-fugitive'
 
-  -- lodash but for nvim
-  use 'nvim-lua/plenary.nvim'
-
   -- Cmake integration
   use {
     'Shatur/neovim-cmake',
