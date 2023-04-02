@@ -53,9 +53,6 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- .editorconfig support
-  use 'editorconfig/editorconfig-vim'
-
   -- Fuzzy finder
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
