@@ -1,7 +1,4 @@
 -- language server setup
-lspconfig = require('lspconfig')
-util = require('lspconfig/util')
-
 local cmp = require('cmp')
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
@@ -66,15 +63,22 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+lspconfig = require('lspconfig')
+
 lspconfig.clangd.setup {
+  capabilities = capabilities,
   flags = lsp_flags,
   on_attach = on_attach,
 }
 lspconfig.gopls.setup {
+  capabilities = capabilities,
   flags = lsp_flags,
   on_attach = on_attach,
 }
 lspconfig.rust_analyzer.setup {
+  capabilities = capabilities,
   flags = lsp_flags,
   on_attach = on_attach,
 }
