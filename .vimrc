@@ -15,6 +15,7 @@ set scrolloff=8
 
 set termguicolors
 set background=dark
+set cursorline
 
 set colorcolumn=80
 set signcolumn=auto
