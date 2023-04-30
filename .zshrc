@@ -106,6 +106,9 @@ alias gpg=gpg2
 # Allow easier dotfile git management in $HOME
 alias config='$(which git) --git-dir=$HOME/dotfiles --work-tree=$HOME'
 
+# neovim > vim
+alias vim=nvim
+
 # Allow GPG signing
 export GPG_TTY=$(tty)
 
