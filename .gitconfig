@@ -1,5 +1,5 @@
 [core]
-    editor = $(which vim)
+    editor = $(which nvim)
 [user]
     email = git@lukaszanner.de
     name = Lukas Zanner
