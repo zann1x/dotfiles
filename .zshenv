@@ -8,7 +8,6 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-
 # add Go to PATH
 if [ -d "/usr/local/go/bin" ] ; then
     PATH="/usr/local/go/bin:$PATH"
@@ -17,5 +16,12 @@ if [ -d "$HOME/go/bin" ] ; then
     PATH="$HOME/go/bin:$PATH"
 fi
 
-# source Rust
-. "$HOME/.cargo/env"
+# source Rust if installed
+if [ -e "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
+fi
+
+# source Nix if installed
+if [ -e /home/lukas/.nix-profile/etc/profile.d/nix.sh ]; then
+    . /home/lukas/.nix-profile/etc/profile.d/nix.sh;
+fi
