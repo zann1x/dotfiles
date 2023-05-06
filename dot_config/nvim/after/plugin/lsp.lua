@@ -11,6 +11,7 @@ cmp.setup({
   }),
   snippet = {
     expand = function(args)
+      -- Specify a snippet engine
       vim.fn["vsnip#anonymous"](args.body)
     end,
   },

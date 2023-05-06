@@ -65,8 +65,8 @@ return require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
 
   -- Code completion
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
+  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
 
