@@ -1,22 +1,22 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 
 # This script is meant to be used from within tmux as a replacement of 
 # find-window. By providing a list of relevant directories to switch to,
 # one can quickly switch between directories within tmux. Each directory
 # equals a separate tmux session after selection.
 
-# the user either
+# The user either
 # 1. just started the script in which case we show the output of fzf
 # 2. the user selected a directory from fzf in which case we use that directly
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    # show a list of relevant directories via fzf
-    selected=$(find ~/ ~/.config ~/projects -mindepth 1 -maxdepth 1 -type d | fzf)
+    # Show a list of relevant directories via fzf
+    selected=$(find ~/ ~/projects -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then
-    # we can't continue without a selected directory
+    # We can't continue without a selected directory
     exit 0
 fi
 
@@ -30,10 +30,10 @@ if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
 fi
 
 if ! tmux has-session -t=$selected_name 2> /dev/null; then
-    # a session with the selected name already exists, so create a new session
+    # A session with the selected name already exists, so create a new session
     # and detach any existing sessions
     tmux new-session -ds $selected_name -c $selected
 fi
 
-# switch to the selected (new) session
+# Switch to the selected (new) session
 tmux switch-client -t $selected_name
