@@ -6,3 +6,6 @@ alias vim=nvim
 
 # Allow easier dotfiles management with git in $HOME
 alias config='$(which git) --git-dir=$HOME/dotfiles --work-tree=$HOME'
+
+# Save typing when interacting with the dotfile manager
+alias cz=chezmoi
