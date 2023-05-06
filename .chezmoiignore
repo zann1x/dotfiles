@@ -1,3 +1,6 @@
+# Do not clutter ~/ with git repository files
+README.md
+
 # We don't need information about the compiled neovim plugins
 .config/nvim/plugin/packer_compiled.lua
 
