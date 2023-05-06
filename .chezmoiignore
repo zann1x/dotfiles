@@ -1,0 +1,6 @@
+# We don't need information about the compiled neovim plugins
+.config/nvim/plugin/packer_compiled.lua
+
+# DO NOT COMMIT SECRETS
+.gnupg/
+.ssh/
