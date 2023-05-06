@@ -44,5 +44,8 @@ if [ -e /home/lukas/.nix-profile/etc/profile.d/nix.sh ]; then
     . /home/lukas/.nix-profile/etc/profile.d/nix.sh;
 fi
 
+# One neovim to rule them all
+export EDITOR=nvim
+
 # Allow GPG signing
 export GPG_TTY=$(tty)
