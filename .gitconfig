@@ -4,8 +4,11 @@
     email = git@lukaszanner.de
     name = Lukas Zanner
     signingkey = 6745256B81327E7E!
+
 [commit]
     gpgsign = true
+[credential]
+	helper = cache --timeout=14400
 [init]
     defaultBranch = main
 [pull]
@@ -14,6 +17,7 @@
     enabled = true
 [tag]
     forceSignAnnotated = true
+
 [alias]
     a = add
     ai = add -i
