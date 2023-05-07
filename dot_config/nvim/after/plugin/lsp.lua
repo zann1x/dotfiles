@@ -1,4 +1,4 @@
--- language server setup
+-- Language server setup.
 local cmp = require('cmp')
 cmp.setup({
   mapping = cmp.mapping.preset.insert({
@@ -13,6 +13,20 @@ cmp.setup({
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
+  formatting = {
+    fields = { 'menu', 'abbr', 'kind' },
+    format = function(entry, item)
+      local menu_icon = {
+        nvim_lsp = 'λ',
+        luasnip = '⋗',
+        buffer = 'Ω',
+        path = '≈',
+      }
+
+      item.menu = menu_icon[entry.source.name]
+      return item
+    end,
+  },
   snippet = {
     expand = function(args)
       -- Specify a snippet engine
@@ -21,8 +35,36 @@ cmp.setup({
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
+    { name = 'nvim_lsp_signature_help' },
+    { name = 'buffer', keyword_length = 5 },
+    { name = 'path' },
     { name = 'vsnip' },
+  }, {
+    { name = 'buffer' },
   }),
+})
+
+-- `/` and `?` cmdline setup.
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- `:` cmdline setup.
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    {
+      name = 'cmdline',
+      option = {
+        ignore_cmds = { 'Man', '!' }
+      }
+    }
+  })
 })
 
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
@@ -63,27 +105,22 @@ local on_attach = function(client, bufnr)
   end, bufopts)
 end
 
-local lsp_flags = {
-  -- This is the default in Nvim 0.7+
-  debounce_text_changes = 150,
-}
-
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+require('mason').setup()
+require('mason-lspconfig').setup()
 
 lspconfig = require('lspconfig')
 
 lspconfig.clangd.setup {
   capabilities = capabilities,
-  flags = lsp_flags,
   on_attach = on_attach,
 }
 lspconfig.gopls.setup {
   capabilities = capabilities,
-  flags = lsp_flags,
   on_attach = on_attach,
 }
 lspconfig.rust_analyzer.setup {
   capabilities = capabilities,
-  flags = lsp_flags,
   on_attach = on_attach,
 }

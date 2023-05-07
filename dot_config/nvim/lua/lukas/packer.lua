@@ -63,12 +63,18 @@ return require('packer').startup(function(use)
 
   -- Language Server Protocol
   use 'neovim/nvim-lspconfig'
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
 
   -- Code completion
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-  use 'hrsh7th/cmp-vsnip'
-  use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/cmp-nvim-lsp-signature-help' -- Highlight the current item in a signature's completion window
+  use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
+  use 'hrsh7th/cmp-path' -- nvim-cmp source for filesystem paths
+  use 'hrsh7th/cmp-cmdline' -- nvim-cmp source for vim's cmdline
+  use 'hrsh7th/cmp-vsnip' -- nvim-cmp source vim-vsnip
+  use 'hrsh7th/vim-vsnip' -- VSCode(LSP)'s snippet feature in vim/nvim
 
   -- Progress indicator for LSP
   use {
