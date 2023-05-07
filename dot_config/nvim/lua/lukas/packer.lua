@@ -84,6 +84,14 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- Convenient commenting of lines
+  use {
+    'numToStr/Comment.nvim',
+    config = function ()
+      require('Comment').setup()
+    end
+  }
+
   -- Treesitter
   use {
       'nvim-treesitter/nvim-treesitter',
