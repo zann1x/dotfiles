@@ -34,9 +34,6 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- When shit hits the fan
-  use 'eandrju/cellular-automaton.nvim' 
-
   -- Git integration
   use 'tpope/vim-fugitive'
 
