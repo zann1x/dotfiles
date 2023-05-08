@@ -40,6 +40,9 @@ nnoremap <silent> # #zz
 nnoremap <silent> <C-d> <C-d>zz
 nnoremap <silent> <C-u> <C-u>zz
 
+" Quickly open netrw in the current directory
+nnoremap <silent> <leader>pv :Explore<CR>
+
 " Convenience for start and end of line without having to move my hands
 nnoremap <silent> H ^
 nnoremap <silent> L $
