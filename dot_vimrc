@@ -18,7 +18,7 @@ set background=dark
 set cursorline
 
 set colorcolumn=80
-set signcolumn=auto
+set signcolumn=yes
 
 set cmdheight=2
 set updatetime=50
