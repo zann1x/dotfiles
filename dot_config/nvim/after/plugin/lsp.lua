@@ -120,11 +120,6 @@ lspconfig.gopls.setup {
   capabilities = capabilities,
   on_attach = on_attach,
 }
-lspconfig.hls.setup {
-  capabilities = capabilities,
-  filetypes = { 'haskell', 'lhaskell', 'cabal' },
-  on_attach = on_attach,
-}
 lspconfig.rust_analyzer.setup {
   capabilities = capabilities,
   on_attach = on_attach,
