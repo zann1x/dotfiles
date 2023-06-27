@@ -59,9 +59,12 @@ return require('packer').startup(function(use)
   }
 
   -- Language Server Protocol
-  use 'neovim/nvim-lspconfig'
-  use 'williamboman/mason.nvim'
+  use {
+      'williamboman/mason.nvim',
+      run = ":MasonUpdate" -- update registry contents
+  }
   use 'williamboman/mason-lspconfig.nvim'
+  use 'neovim/nvim-lspconfig'
 
   -- Code completion
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
