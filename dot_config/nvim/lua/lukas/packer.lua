@@ -84,6 +84,19 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- Debugging
+  use 'mfussenegger/nvim-dap'
+  use {
+      'rcarriga/nvim-dap-ui',
+      requires = { 'mfussenegger/nvim-dap' }
+  }
+  use {
+      'leoluz/nvim-dap-go',
+      config = function()
+          require'dap-go'.setup()
+      end
+  }
+
   -- Convenient commenting of lines
   use {
     'numToStr/Comment.nvim',
