@@ -108,7 +108,13 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 require('mason').setup()
-require('mason-lspconfig').setup()
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    'clangd',
+    'gopls',
+    'rust_analyzer',
+  }
+})
 
 lspconfig = require('lspconfig')
 
