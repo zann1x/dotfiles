@@ -42,7 +42,7 @@ return require('packer').startup(function(use)
     'Shatur/neovim-cmake',
     config = function()
       require'cmake'.setup({
-        copy_compile_commands = false,
+        copy_compile_commands = true,
       })
     end
   }
