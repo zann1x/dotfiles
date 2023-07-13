@@ -80,9 +80,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
@@ -105,28 +102,25 @@ local on_attach = function(client, bufnr)
   end, bufopts)
 end
 
+require('mason').setup()
+require('mason-lspconfig').setup()
+
+local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require('mason').setup()
-require('mason-lspconfig').setup({
-  ensure_installed = {
-    'clangd',
-    'gopls',
-    'rust_analyzer',
-  }
+require("mason-lspconfig").setup_handlers({
+  function(server_name)
+    lspconfig[server_name].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+  end,
 })
 
-lspconfig = require('lspconfig')
-
-lspconfig.clangd.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-lspconfig.gopls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
-lspconfig.rust_analyzer.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-}
+local servers = { 'clangd', 'gopls', 'rust_analyzer' }
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+  }
+end
