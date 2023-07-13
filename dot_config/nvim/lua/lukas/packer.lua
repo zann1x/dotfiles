@@ -79,6 +79,12 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-vsnip' -- nvim-cmp source vim-vsnip
   use 'hrsh7th/vim-vsnip' -- VSCode(LSP)'s snippet feature in vim/nvim
 
+  -- Bridge the gap between LSP and formatters, linters and alike
+  use {
+    'jose-elias-alvarez/null-ls.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
+  }
+
   -- Progress indicator for LSP
   use {
     'j-hui/fidget.nvim', tag = 'legacy',
