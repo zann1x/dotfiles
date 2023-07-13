@@ -16,6 +16,9 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- All the lua functions no one wants to write twice
+  use 'nvim-lua/plenary.nvim'
+
   -- Status line
   use 'vim-airline/vim-airline'
   use {
