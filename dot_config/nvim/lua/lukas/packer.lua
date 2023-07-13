@@ -87,6 +87,9 @@ return require('packer').startup(function(use)
     end
   }
 
+  -- Better Rust support
+  use 'simrat39/rust-tools.nvim'
+
   -- Debugging
   use 'mfussenegger/nvim-dap'
   use {

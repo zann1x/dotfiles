@@ -117,10 +117,17 @@ require("mason-lspconfig").setup_handlers({
   end,
 })
 
-local servers = { 'clangd', 'gopls', 'rust_analyzer' }
+local servers = { 'clangd', 'gopls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     capabilities = capabilities,
     on_attach = on_attach,
   }
 end
+
+require('rust-tools').setup({
+  server = {
+    capabilities = capabilities,
+    on_attach = on_attach,
+  },
+})
