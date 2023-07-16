@@ -53,7 +53,7 @@ cmp.setup.cmdline(':', {
   })
 })
 
-vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+vim.opt.completeopt = { 'menuone', 'noselect' }
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
