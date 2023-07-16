@@ -26,7 +26,10 @@ set listchars=tab:––\ \,extends:>,precedes:<,space:·
 set list
 
 set cmdheight=2
+
 set updatetime=50
+set timeout
+set timeoutlen=300
 
 set showmatch
 
