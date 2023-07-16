@@ -52,7 +52,7 @@ return require('packer').startup(function(use)
 
   -- Fuzzy finder
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.2',
+    'nvim-telescope/telescope.nvim', tag = '0.1.x',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
   -- Telescope sorter to improve sorting performance
