@@ -40,7 +40,10 @@ set wildignore+='*/.git/*,*/*build*/*,*/target/*,*.lock'
 
 set clipboard=unnamedplus
 
+" Set up the leader key and let it do nothing else than being a leader
 let mapleader=' '
+nnoremap <silent> <Space> <Nop>
+vnoremap <silent> <Space> <Nop>
 
 " Keep the cursor in the middle when jumping within a file
 nnoremap <silent> n nzz
