@@ -33,6 +33,8 @@ set path+='**'
 set wildmenu
 set wildignore+='*/.git/*,*/*build*/*,*/target/*,*.lock'
 
+set clipboard=unnamedplus
+
 let mapleader=' '
 
 " Keep the cursor in the middle when jumping within a file
