@@ -44,9 +44,6 @@ if [ -e /home/lukas/.nix-profile/etc/profile.d/nix.sh ]; then
     . /home/lukas/.nix-profile/etc/profile.d/nix.sh;
 fi
 
-# include Haskell if installed
-[ -f "/home/lukas/.ghcup/env" ] && source "/home/lukas/.ghcup/env" # ghcup-env
-
 # One neovim to rule them all
 export EDITOR=nvim
 
