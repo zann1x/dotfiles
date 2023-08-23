@@ -96,19 +96,6 @@ return require('packer').startup(function(use)
   -- Better Rust support
   use 'simrat39/rust-tools.nvim'
 
-  -- Debugging
-  use 'mfussenegger/nvim-dap'
-  use {
-      'rcarriga/nvim-dap-ui',
-      requires = { 'mfussenegger/nvim-dap' }
-  }
-  use {
-      'leoluz/nvim-dap-go',
-      config = function()
-          require'dap-go'.setup()
-      end
-  }
-
   -- Automatically finish pairs of... things
   use {
     'windwp/nvim-autopairs',
