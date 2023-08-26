@@ -88,6 +88,15 @@ local on_attach = function(client, bufnr)
   end, bufopts)
 end
 
+local format_sync_grp = vim.api.nvim_create_augroup("Format", {})
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go,*.rs",
+  callback = function()
+    vim.lsp.buf.format({ timeout_ms = 200 })
+  end,
+  group = format_sync_grp,
+})
+
 require('mason').setup()
 require('mason-lspconfig').setup()
 
