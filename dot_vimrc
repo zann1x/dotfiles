@@ -42,6 +42,7 @@ set clipboard=unnamedplus
 
 " Set up the leader key and let it do nothing else than being a leader
 let mapleader=' '
+let maplocalleader=' '
 nnoremap <silent> <Space> <Nop>
 vnoremap <silent> <Space> <Nop>
 
