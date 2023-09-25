@@ -1,6 +1,5 @@
-source ~/.vimrc
+vim.cmd.source("~/.vimrc")
 
-lua << EOF
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -346,4 +345,3 @@ require("null-ls").setup({
         null_ls.builtins.formatting.golines,
     }
 })
-EOF
