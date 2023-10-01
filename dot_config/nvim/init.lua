@@ -284,11 +284,6 @@ local on_attach = function(client, bufnr)
     nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
     nmap("gr", vim.lsp.buf.references, "[G]o To [R]eferences")
     nmap("<leader>fr", vim.lsp.buf.format, "[F]ile [R]eformat")
-
-    -- Create a command `:Format` local to the LSP buffer
-    vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-        vim.lsp.buf.format()
-    end, { desc = "Format current buffer with LSP" })
 end
 
 -- nvim-cmp supports additional completion capabilities that need to be
