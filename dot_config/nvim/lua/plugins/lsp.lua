@@ -234,19 +234,19 @@ return {
 
     -- Bridge the gap between LSP and formatter, linters and alike
     {
-        "jose-elias-alvarez/null-ls.nvim",
+        "nvimtools/none-ls.nvim",
         event = { "BufReadPre", "BufNewFile" },
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
-        config = function()
-            local null_ls = require("null-ls")
-            null_ls.setup({
+        opts = function()
+            local nls = require("null-ls")
+            return {
                 sources = {
-                    null_ls.builtins.formatting.goimports,
-                    null_ls.builtins.formatting.golines,
-                }
-            })
+                    nls.builtins.formatting.goimports,
+                    nls.builtins.formatting.golines,
+                },
+            }
         end,
     },
 }
