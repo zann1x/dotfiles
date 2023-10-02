@@ -1,23 +1,36 @@
 return {
     -- Theme
     {
-        "morhetz/gruvbox",
-        lazy = false,
+        "ellisonleao/gruvbox.nvim",
+        priority = 1000,
         config = function()
-            vim.cmd("autocmd vimenter * ++nested colorscheme gruvbox")
-            vim.g.gruvbox_contrast_dark = "hard"
+            require("gruvbox").setup({
+                italic = {
+                    strings = false,
+                    emphasis = false,
+                    comments = false,
+                },
+                contrast = "hard",
+            })
+
+            vim.cmd.colorscheme("gruvbox")
         end,
     },
 
     -- Status line
     {
-        "vim-airline/vim-airline",
-        lazy = false,
+        "nvim-lualine/lualine.nvim",
+        priority = 1000,
+        opts = {
+            options = {
+                theme = "gruvbox",
+            },
+        },
         dependencies = {
-            "vim-airline/vim-airline-themes",
-            config = function()
-                vim.g.airline_theme = "gruvbox"
-            end,
+            {
+                "nvim-tree/nvim-web-devicons",
+                priority = 1000,
+            },
         },
     },
 }
