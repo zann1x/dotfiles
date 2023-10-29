@@ -27,10 +27,6 @@ return {
             "hrsh7th/cmp-nvim-lsp",
             -- Highlight the current item in a signature's completion window
             "hrsh7th/cmp-nvim-lsp-signature-help",
-            -- Source for buffer words
-            "hrsh7th/cmp-buffer",
-            -- Source for filesystem paths
-            "hrsh7th/cmp-path",
             -- Source for vim's cmdline
             "hrsh7th/cmp-cmdline",
             -- Source vim-vsnip
@@ -65,11 +61,7 @@ return {
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
                     { name = "nvim_lsp_signature_help" },
-                    { name = "buffer", keyword_length = 5 },
-                    { name = "path" },
                     { name = "vsnip" },
-                }, {
-                    { name = "buffer" },
                 }),
             })
 
