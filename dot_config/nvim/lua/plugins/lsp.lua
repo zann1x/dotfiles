@@ -195,7 +195,6 @@ return {
                 end
                 return {
                     lsp_fallback = true,
-                    timeout_ms = 500,
                 }
             end,
         },
