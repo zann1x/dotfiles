@@ -103,11 +103,6 @@ return {
                 tag = "legacy",
                 config = true,
             },
-            -- Better Rust support
-            {
-                "simrat39/rust-tools.nvim",
-                ft = "rs",
-            },
         },
         keys = {
             { "<leader>e", vim.diagnostic.open_float, desc = "Open Floating Diagnostic Message" },
@@ -130,6 +125,8 @@ return {
             { "<leader>fr", vim.lsp.buf.format, "[F]ile [R]eformat" },
         },
         config = function()
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+
             -- nvim-cmp supports additional completion capabilities that need to be
             -- broadcast to servers
             local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -139,8 +136,6 @@ return {
             local servers = {
                 "clangd",
                 "gopls",
-                -- Rust is managed by rust-tools
-                -- "rust"
             }
 
             -- Ensure the servers above are installed
@@ -151,26 +146,13 @@ return {
                 })
             end
 
-            -- Set up extended rust support additionally
-            require("rust-tools").setup({
-                server = {
-                    capabilities = capabilities,
-                    on_attach = on_attach,
-                    settings = {
-                        ["rust-analyzer"] = {
-                            cargo = {
-                                allFeatures = true,
-                                loadOutDirsFromCheck = true,
-                                runBuildScripts = true,
-                            },
-                            checkOnSave = {
-                                allFeatures = true,
-                                command = "clippy",
-                                extraArgs = { "--no-deps" },
-                            },
-                            procMacro = {
-                                enable = true,
-                            }
+            require("lspconfig").rust_analyzer.setup({
+                capabilities = capabilities,
+                on_attach = on_attach,
+                settings = {
+                    ["rust-analyzer"] = {
+                        cargo = {
+                            features = "all",
                         },
                     },
                 },
