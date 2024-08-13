@@ -125,20 +125,20 @@ return {
             { "<leader>fr", vim.lsp.buf.format, "[F]ile [R]eformat" },
         },
         config = function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-
             -- nvim-cmp supports additional completion capabilities that need to be
             -- broadcast to servers
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+
+            local on_attach = function(client, bufnr)
+                vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+            end
 
             -- Language servers to enable
             local servers = {
                 "clangd",
                 "gopls",
             }
-
-            -- Ensure the servers above are installed
             for _, server in ipairs(servers) do
                 require("lspconfig")[server].setup({
                     capabilities = capabilities,
