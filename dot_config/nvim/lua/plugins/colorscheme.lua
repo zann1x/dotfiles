@@ -1,20 +1,13 @@
 return {
     -- Theme
     {
-        "ellisonleao/gruvbox.nvim",
+        "bluz71/vim-moonfly-colors",
+        name = "moonfly",
+        lazy = false,
         priority = 1000,
         config = function()
-            require("gruvbox").setup({
-                italic = {
-                    strings = false,
-                    emphasis = false,
-                    comments = false,
-                },
-                contrast = "hard",
-            })
-
-            vim.cmd.colorscheme("gruvbox")
-        end,
+            vim.cmd.colorscheme("moonfly")
+        end
     },
 
     -- Status line
@@ -23,7 +16,7 @@ return {
         priority = 1000,
         opts = {
             options = {
-                theme = "gruvbox",
+                theme = "codedark",
             },
         },
         dependencies = {
