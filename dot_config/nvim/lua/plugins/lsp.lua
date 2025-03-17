@@ -138,6 +138,8 @@ return {
             local servers = {
                 "clangd",
                 "gopls",
+                "postgres_lsp",
+                "protols",
             }
             for _, server in ipairs(servers) do
                 require("lspconfig")[server].setup({

@@ -16,7 +16,7 @@ return {
                     -- Required
                     "c", "lua", "query", "vim", "vimdoc",
                     -- Nice to have
-                    "cpp", "go", "rust",
+                    "cpp", "go", "proto", "rust", "sql",
                 },
 
                 -- Install parsers synchronously (only applied to `ensure_installed`)
