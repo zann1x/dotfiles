@@ -2,7 +2,7 @@
 alias gpg=gpg2
 
 # One neovim to rule them all
-alias nvim=nvim.appimage
+alias nvim=nvim-linux-x86_64.appimage
 alias vim=nvim
 
 # Save typing when interacting with the dotfile manager
