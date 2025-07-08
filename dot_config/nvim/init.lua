@@ -287,16 +287,18 @@ require("lazy").setup({
     -- Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
-        event = { "BufReadPost", "BufNewFile" },
+        branch = "master",
+        lazy = false,
+        main = 'nvim-treesitter.configs', -- Sets main module to use for opts
         build = ":TSUpdate",
         cmd = { "TSUpdateSync" },
         -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
         opts = {
             ensure_installed = {
                 -- Required
-                "c", "lua", "query", "vim", "vimdoc",
+                "c", "lua", "markdown", "markdown_inline", "query", "vim", "vimdoc",
                 -- Nice to have
-                "bash", "cpp", "diff", "go", "markdown", "markdown_inline", "proto", "rust", "sql",
+                "bash", "cpp", "diff", "go", "proto", "rust", "sql",
             },
 
             -- Automatically install missing parsers when entering buffer
