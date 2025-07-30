@@ -1,5 +1,5 @@
 [core]
-    editor = nvim.appimage
+    editor = nvim-linux-x86_64.appimage
 [user]
     email = git@lukaszanner.de
     name = Lukas Zanner
@@ -8,11 +8,11 @@
 [commit]
     gpgsign = true
 [credential]
-	helper = cache --timeout=14400
+    helper = cache --timeout=14400
 [init]
     defaultBranch = main
 [pull]
-	rebase = true
+    rebase = true
 [rerere]
     enabled = true
 [tag]
@@ -27,15 +27,16 @@
     ca = commit --amend
     can = commit --amend --no-edit
 
+    cp = cherry-pick
+    cpa = cherry-pick --abort
+    cpc = cherry-pick --continue
+
     f = fetch
-    fa = fetch --all
-    fp = fetch --prune
     fap = fetch --all --prune
 
     p = pull
     pu = push
     puf = push --force-with-lease
-    puff = push --force
 
     r = rebase
     ra = rebase --abort
@@ -50,4 +51,4 @@
     fl = log -u
     ll = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=relative
     lli = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=iso
-    ls = log --pretty=format:"%h\\ %s\\ [%cn]"
+    ls = log --pretty=format:"%h\\ %s\\ [%an]"
