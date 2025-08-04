@@ -176,6 +176,70 @@ end, {
   desc = "Re-enable autoformat-on-save",
 })
 
+vim.pack.add({
+    -- Theme
+    {
+        src = "https://github.com/bluz71/vim-moonfly-colors",
+        name = "moonfly",
+    },
+    -- All the lua functions you don't want to write twice
+    "https://github.com/nvim-lua/plenary.nvim",
+    -- Nerd Font icons
+    "https://github.com/nvim-tree/nvim-web-devicons",
+    -- Status line
+    "https://github.com/nvim-lualine/lualine.nvim",
+    -- CMake integration
+    "https://github.com/Shatur/neovim-cmake",
+    -- Convenient commenting of lines
+    "https://github.com/numToStr/Comment.nvim",
+    -- Treesitter
+    {
+        src = "https://github.com/nvim-treesitter/nvim-treesitter",
+        version = "master",
+    },
+})
+
+vim.cmd [[colorscheme moonfly]]
+
+require("nvim-web-devicons").setup()
+
+require("lualine").setup({
+    options = {
+        theme = "codedark",
+    },
+})
+
+require("cmake").setup({
+    copy_compile_commands = true,
+})
+
+require("Comment").setup()
+
+require("nvim-treesitter.configs").setup({
+    ensure_installed = {
+        -- Required
+        "c", "lua", "markdown", "markdown_inline", "query", "vim", "vimdoc",
+        -- Nice to have
+        "bash", "cpp", "diff", "go", "proto", "rust", "sql",
+    },
+
+    -- Automatically install missing parsers when entering buffer
+    -- Recommendation: set to false if you don't have `tree-sitter`
+    -- CLI installed locally
+    auto_install = false,
+
+    highlight = {
+        enable = true,
+        -- Setting this to true will run `:h syntax` and tree-sitter
+        -- at the same time. Set this to `true` if you depend on
+        -- 'syntax' being enabled (like for indentation). Using this
+        -- option may slow down your editor, and you may see some
+        -- duplicate highlights. Instead of true it can also be a
+        -- list of languages
+        additional_vim_regex_highlighting = false,
+    },
+})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 
@@ -221,54 +285,6 @@ require("lazy").setup({
         end,
     },
 
-    -- CMake integration
-    {
-        "Shatur/neovim-cmake",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-        config = function()
-            require("cmake").setup({
-                copy_compile_commands = true,
-            })
-        end,
-    },
-
-    -- Theme
-    {
-        "bluz71/vim-moonfly-colors",
-        name = "moonfly",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            vim.cmd [[colorscheme moonfly]]
-        end
-    },
-
-    -- Status line
-    {
-        "nvim-lualine/lualine.nvim",
-        priority = 1000,
-        opts = {
-            options = {
-                theme = "codedark",
-            },
-        },
-        dependencies = {
-            {
-                "nvim-tree/nvim-web-devicons",
-                priority = 1000,
-            },
-        },
-    },
-
-    -- Convenient commenting of lines
-    {
-        "numToStr/Comment.nvim",
-        event = { "BufReadPre", "BufNewFile" },
-        config = true,
-    },
-
     -- Git integration
     {
         "NeogitOrg/neogit",
@@ -284,40 +300,6 @@ require("lazy").setup({
         config = true,
     },
 
-    -- Treesitter
-    {
-        "nvim-treesitter/nvim-treesitter",
-        branch = "master",
-        lazy = false,
-        main = 'nvim-treesitter.configs', -- Sets main module to use for opts
-        build = ":TSUpdate",
-        cmd = { "TSUpdateSync" },
-        -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-        opts = {
-            ensure_installed = {
-                -- Required
-                "c", "lua", "markdown", "markdown_inline", "query", "vim", "vimdoc",
-                -- Nice to have
-                "bash", "cpp", "diff", "go", "proto", "rust", "sql",
-            },
-
-            -- Automatically install missing parsers when entering buffer
-            -- Recommendation: set to false if you don't have `tree-sitter`
-            -- CLI installed locally
-            auto_install = false,
-
-            highlight = {
-                enable = true,
-                -- Setting this to true will run `:h syntax` and tree-sitter
-                -- at the same time. Set this to `true` if you depend on
-                -- 'syntax' being enabled (like for indentation). Using this
-                -- option may slow down your editor, and you may see some
-                -- duplicate highlights. Instead of true it can also be a
-                -- list of languages
-                additional_vim_regex_highlighting = false,
-            },
-        },
-    },
     {
         "nvim-treesitter/nvim-treesitter-context",
         dependencies = {
