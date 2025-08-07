@@ -197,6 +197,8 @@ vim.pack.add({
         src = "https://github.com/nvim-treesitter/nvim-treesitter",
         version = "master",
     },
+    -- Indentation guides
+    "https://github.com/lukas-reineke/indent-blankline.nvim",
 })
 
 vim.cmd [[colorscheme moonfly]]
@@ -214,6 +216,8 @@ require("cmake").setup({
 })
 
 require("Comment").setup()
+
+require("ibl").setup()
 
 require("nvim-treesitter.configs").setup({
     ensure_installed = {
@@ -304,18 +308,6 @@ require("lazy").setup({
         "nvim-treesitter/nvim-treesitter-context",
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
-        },
-    },
-
-    {
-        "folke/snacks.nvim",
-        priority = 1000,
-        lazy = false,
-        opts = {
-            bigfile = {},
-            indent = {},
-            quickfile = {},
-            words = {},
         },
     },
 
