@@ -244,7 +244,20 @@ require("lazy").setup({
         lazy = false,
         priority = 1000,
         config = function()
-            vim.cmd [[colorscheme moonfly]]
+            -- vim.cmd [[colorscheme moonfly]]
+        end
+    },
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require("catppuccin").setup({
+                auto_integrations = true,
+            })
+
+            vim.cmd.colorscheme "catppuccin-mocha"
         end
     },
 
@@ -254,7 +267,7 @@ require("lazy").setup({
         priority = 1000,
         opts = {
             options = {
-                theme = "codedark",
+                theme = "auto",
             },
         },
         dependencies = {
