@@ -9,6 +9,8 @@
     gpgsign = true
 [credential]
     helper = cache --timeout=14400
+[diff]
+    colormoved = default
 [init]
     defaultBranch = main
 [pull]
