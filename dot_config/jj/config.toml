@@ -1,0 +1,22 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[user]
+name = "Lukas Zanner"
+email = "git@lukaszanner.de"
+
+[ui]
+editor = "nvim-linux-x86_64.appimage"
+default-command = "log"
+
+[signing]
+backend = "gpg"
+key = "6745256B81327E7E"
+behavior = "drop"
+
+[git]
+sign-on-push = true
+
+[remotes.origin]
+auto-track-bookmarks = "*"
+[remotes.upstream]
+auto-track-bookmarks = "main"
