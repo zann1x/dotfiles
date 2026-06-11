@@ -25,15 +25,15 @@ tmux_running=$(pgrep tmux)
 
 if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
     # tmux wasn't running yet, so let's create a completely new session
-    tmux new-session -s $selected_name -c $selected
+    ~/bin/tmux-3.6b-linux-x86_64 new-session -s $selected_name -c $selected
     exit 0
 fi
 
-if ! tmux has-session -t=$selected_name 2> /dev/null; then
+if ! ~/bin/tmux-3.6b-linux-x86_64 has-session -t=$selected_name 2> /dev/null; then
     # A session with the selected name already exists, so create a new session
     # and detach any existing sessions
-    tmux new-session -ds $selected_name -c $selected
+    ~/bin/tmux-3.6b-linux-x86_64 new-session -ds $selected_name -c $selected
 fi
 
 # Switch to the selected (new) session
-tmux switch-client -t $selected_name
+~/bin/tmux-3.6b-linux-x86_64 switch-client -t $selected_name

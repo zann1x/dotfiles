@@ -7,3 +7,8 @@ alias vim=nvim
 
 # Save typing when interacting with the dotfile manager
 alias cz=chezmoi
+
+# Windows terminal's SSH together with the tmux 3.5a installation provided by
+# Debian breaks more often than not and spits out random characters on startup.
+# To fix that, we use a custom version.
+alias tmux=tmux-3.6b-linux-x86_64
