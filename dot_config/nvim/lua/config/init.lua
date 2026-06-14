@@ -1,0 +1,6 @@
+require("config.autocmds")
+require("config.diagnostics")
+require("config.keymaps")
+require("config.lsp")
+require("config.options")
+require("config.user_commands")
