@@ -1,11 +1,6 @@
-vim.pack.add({
-    "https://github.com/saghen/blink.cmp",
-    "https://github.com/saghen/blink.lib" -- Dependency
-})
+vim.pack.add({{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range "1.*" }})
 
-local cmp = require("blink.cmp")
-cmp.build():pwait()
-cmp.setup({
+require("blink.cmp").setup({
     keymap = {
         -- "default" (recommended) for mappings similar to built-in completions
         --   <c-y> to accept ([y]es) the completion.
@@ -45,4 +40,7 @@ cmp.setup({
     },
 
     snippets = { preset = "luasnip" },
+
+    -- Shows a signature help window while you type arguments for a function
+    signature = { enabled = true },
 })

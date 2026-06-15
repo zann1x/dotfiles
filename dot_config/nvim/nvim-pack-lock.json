@@ -10,12 +10,9 @@
       "version": "2.0.0 - 3.0.0"
     },
     "blink.cmp": {
-      "rev": "13e7b50e7ba73ce781459da68d346925adfdb530",
-      "src": "https://github.com/saghen/blink.cmp"
-    },
-    "blink.lib": {
-      "rev": "b127d48bf8e9ac9cf41f6e0fbead317503f76558",
-      "src": "https://github.com/saghen/blink.lib"
+      "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
+      "src": "https://github.com/saghen/blink.cmp",
+      "version": "1.0.0 - 2.0.0"
     },
     "catppuccin": {
       "rev": "0303a7208dba448c459767486a38a6ec05c4216b",
