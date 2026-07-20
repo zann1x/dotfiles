@@ -1,4 +1,5 @@
 require("config.autocmds")
+require("config.clipboard")
 require("config.diagnostics")
 require("config.keymaps")
 require("config.lsp")
